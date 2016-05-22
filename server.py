@@ -1,4 +1,5 @@
 import requests
+import os
 
 from flask import Flask, request, Response
 from werkzeug.datastructures import Headers
@@ -6,7 +7,7 @@ from werkzeug.datastructures import Headers
 from two1.wallet import Wallet
 from two1.bitserv.flask import Payment
 
-NOMINATIM_HOST = 'ec2-52-40-116-115.us-west-2.compute.amazonaws.com'
+NOMINATIM_HOST = os.environ.get('NOMINATIM_HOST', 'localhost')
 NOMINATIM_PORT = '80'
 
 app = Flask(__name__)
