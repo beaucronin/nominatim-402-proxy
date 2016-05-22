@@ -15,7 +15,7 @@ wallet = Wallet()
 payment = Payment(app, wallet)
 
 def do_call(method_name):
-    url = 'http://{}:{}/{}.php'.format(NOMINATIM_HOST, NOMINATIM_PORT, method_name)
+    url = 'http://{}:{}/nominatim/{}.php'.format(NOMINATIM_HOST, NOMINATIM_PORT, method_name)
     print(url)
     r = requests.get(
         url=url,
