@@ -31,7 +31,7 @@ def reverse():
 
 @app.route('/search')
 @payment.required(5)
-def reverse():
+def search():
     return do_call('search')
 
 if __name__ == '__main__':
