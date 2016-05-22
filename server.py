@@ -19,17 +19,20 @@ def do_call(method_name):
     r = requests.get(
         url=url,
         params=request.args if request.args else None)
-    return r
+    resp = Response(
+        r.text if r.text else None,
+        status = r.status_code)
+    return resp
 
 @app.route('/reverse')
 @payment.required(5)
 def reverse():
-    r = do_call('reverse')
-    resp = Response(
-        r.text if r.text else None,
-        status = r.status_code)
-    print(resp)
-    return resp
+    return do_call('reverse')
+
+@app.route('/search')
+@payment.required(5)
+def reverse():
+    return do_call('search')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
