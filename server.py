@@ -29,3 +29,6 @@ def do_call(method_name):
 @payment.required(5)
 def reverse():
     return do_call('reverse')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
