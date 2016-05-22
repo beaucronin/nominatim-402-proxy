@@ -19,6 +19,12 @@ def do_call(method_name):
     r = requests.get(
         url=url,
         params=request.args if request.args else None)
+    return r
+
+@app.route('/reverse')
+@payment.required(5)
+def reverse():
+    r = do_call('reverse')
     headers = list(r.headers.items())
     resp = Response(
         r.text if r.text else None,
@@ -26,11 +32,6 @@ def do_call(method_name):
         headers = headers)
     print(resp)
     return resp
-
-@app.route('/reverse')
-@payment.required(5)
-def reverse():
-    return do_call('reverse')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
