@@ -1,0 +1,17 @@
+info:
+  title: Nominatim geo-coding server
+  description: A 402-payable proxy for a Nominatim geo-coding and search server
+  x-21-quick-buy: '21 buy http://10.244.93.227:5001/reverse?format=json&lat=37.7749&lon=-122.4194'
+  x-21-category: utilities
+  x-21-app-image:
+  x-21-total-price:
+    min: 5
+    max: 50
+  contact:
+    name: Beau Cronin
+    email: beau@21.co
+host: 10.244.93.227:5001
+schemes:
+  - http
+basePath: /
+x-21-manifest-path: /manifest
