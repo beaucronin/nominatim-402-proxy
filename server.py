@@ -16,17 +16,16 @@ payment = Payment(app, wallet)
 
 def do_call(method_name):
     url = 'http://{}:{}/nominatim/{}.php'.format(NOMINATIM_HOST, NOMINATIM_PORT, method_name)
-    print(url)
     r = requests.get(
         url=url,
         params=request.args if request.args else None)
-    print(r.status_code)
-    print(r.text)
     headers = list(r.headers.items())
-    return Response(
+    resp = Response(
         r.text if r.text else None,
         status = r.status_code,
         headers = headers)
+    print(resp)
+    return resp
 
 @app.route('/reverse')
 @payment.required(5)
