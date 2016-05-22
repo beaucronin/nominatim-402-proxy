@@ -25,13 +25,11 @@ def do_call(method_name):
 @payment.required(5)
 def reverse():
     r = do_call('reverse')
-    headers = list(r.headers.items())
     resp = Response(
         r.text if r.text else None,
-        status = r.status_code,
-        headers = headers)
+        status = r.status_code)
     print(resp)
-    return 'ok'
+    return resp
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001)
